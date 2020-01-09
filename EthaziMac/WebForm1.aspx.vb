@@ -1,4 +1,7 @@
-﻿Public Class WebForm1
+﻿Imports System.Windows.Forms
+Imports MySql.Data.MySqlClient
+
+Public Class WebForm1
     Inherits System.Web.UI.Page
 
 
@@ -9,22 +12,19 @@
     End Sub
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim conn As New MySql.Data.MySqlClient.MySqlConnection
-        Dim myConnectionString As String
+        Dim strconexion As String
 
-        myConnectionString = "server=127.0.0.1;" _
-                    & "uid=root;" _
-                    & "pwd=;" _
-                    & "database=mydb"
-
+        Dim conexionbd As MySqlConnection
         Try
-            conn.ConnectionString = myConnectionString
-            conn.Open()
+            conexionbd = New MySqlConnection()
+            conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
 
-        Catch ex As MySql.Data.MySqlClient.MySqlException
-            MessageBox.Show(ex.Message)
+            conexionbd.Open()
+            MessageBox.Show("conectado al servidor")
+        Catch ex As MySqlException
+            MessageBox.Show("no se ha podido conectar al servidor")
+
         End Try
+
     End Sub
-
-
 End Class

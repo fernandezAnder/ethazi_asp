@@ -23,8 +23,17 @@ Public Class WebForm1
             MessageBox.Show("conectado al servidor")
         Catch ex As MySqlException
             MessageBox.Show("no se ha podido conectar al servidor")
-
         End Try
+
+
+        Dim ds As New DataSet
+        Dim SQL As String = "SELECT * FROM pertsona"
+        Dim adaptador As New MySqlDataAdapter(SQL, conexionbd)
+
+        ds.Tables.Add("tabla")
+        adaptador.Fill(ds.Tables("tabla"))
+        GridView1.DataSource = ds.Tables("tabla")
+        conexionbd.Close()
 
     End Sub
 End Class

@@ -23,16 +23,17 @@ Public Class WebForm1
         End Try
 
 
-        'Dim ds As New DataSet
-        'Dim SQL As String = "SELECT * FROM ostatu"
-        'Dim adaptador As New MySqlDataAdapter(SQL, conexionbd)
+        Dim ds As New DataSet
+        Dim SQL As String = "SELECT * FROM ostatu"
+        Dim adaptador As New MySqlDataAdapter(SQL, conexionbd)
 
-        'ds.Tables.Add("tabla")
-        'adaptador.Fill(ds.Tables("tabla"))
-        'GridView1.DataSource = ds.Tables("tabla")
-
+        ds.Tables.Add("tabla")
+        adaptador.Fill(ds.Tables("tabla"))
+        GridView2.DataSource = ds.Tables("tabla")
+        GridView2.DataBind()
         conexionbd.Close()
 
     End Sub
+
 
 End Class

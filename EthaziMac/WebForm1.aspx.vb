@@ -3,7 +3,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class WebForm1
     Inherits System.Web.UI.Page
-
+    Dim conexionbd As MySqlConnection
 
 
     Protected Sub ImageButton1_Click(sender As Object, e As ImageClickEventArgs) Handles ImageButton1.Click
@@ -12,9 +12,6 @@ Public Class WebForm1
     End Sub
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim strconexion As String
-
-        Dim conexionbd As MySqlConnection
         Try
             conexionbd = New MySqlConnection()
             conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
@@ -26,14 +23,16 @@ Public Class WebForm1
         End Try
 
 
-        Dim ds As New DataSet
-        Dim SQL As String = "SELECT * FROM pertsona"
-        Dim adaptador As New MySqlDataAdapter(SQL, conexionbd)
+        'Dim ds As New DataSet
+        'Dim SQL As String = "SELECT * FROM ostatu"
+        'Dim adaptador As New MySqlDataAdapter(SQL, conexionbd)
 
-        ds.Tables.Add("tabla")
-        adaptador.Fill(ds.Tables("tabla"))
-        GridView1.DataSource = ds.Tables("tabla")
+        'ds.Tables.Add("tabla")
+        'adaptador.Fill(ds.Tables("tabla"))
+        'GridView1.DataSource = ds.Tables("tabla")
+
         conexionbd.Close()
 
     End Sub
+
 End Class

@@ -70,13 +70,23 @@ Public Class WebForm2
         Next
 
         If balidazioa = True Then
-            Response.Redirect("WebForm1.aspx")
+            Response.Redirect("Erreserbatu.aspx?erabiltzailea=", erabiltzailea)
         End If
 
     End Sub
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        MessageBox.Show("akldfjn")
+
+        Response.Redirect("Erregistratu.aspx")
+
+    End Sub
+
+    Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim erabiltzailea = "gonbidatua"
+        Response.Redirect("Erreserbatu.aspx?erabiltzailea=", erabiltzailea)
+    End Sub
+
+    Protected Sub erabiltzaile_textua_TextChanged(sender As Object, e As EventArgs) Handles erabiltzaile_textua.TextChanged
 
     End Sub
 End Class

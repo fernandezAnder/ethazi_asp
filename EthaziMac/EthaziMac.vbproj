@@ -116,8 +116,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
-    <Content Include="WebForm2.aspx" />
+    <Content Include="Erreserbatu.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Erregistratu.aspx" />
+    <Content Include="Erabiltzaile_erreserbak.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -139,18 +141,32 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.vb">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Erreserbatu.aspx.designer.vb">
+      <DependentUpon>Erreserbatu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.vb">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Erreserbatu.aspx.vb">
+      <DependentUpon>Erreserbatu.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="WebForm2.aspx.designer.vb">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.vb">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Erregistratu.aspx.designer.vb">
+      <DependentUpon>Erregistratu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Erregistratu.aspx.vb">
+      <DependentUpon>Erregistratu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Erabiltzaile_erreserbak.aspx.designer.vb">
+      <DependentUpon>Erabiltzaile_erreserbak.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Erabiltzaile_erreserbak.aspx.vb">
+      <DependentUpon>Erabiltzaile_erreserbak.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

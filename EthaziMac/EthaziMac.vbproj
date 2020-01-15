@@ -137,6 +137,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Erregistratu.aspx" />
     <Content Include="Erabiltzaile_erreserbak.aspx" />
+    <Content Include="Konfirmazioa.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Metodoak.vb" />
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="Erabiltzaile_erreserbak.aspx.vb">
       <DependentUpon>Erabiltzaile_erreserbak.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Konfirmazioa.aspx.designer.vb">
+      <DependentUpon>Konfirmazioa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Konfirmazioa.aspx.vb">
+      <DependentUpon>Konfirmazioa.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

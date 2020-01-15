@@ -70,7 +70,7 @@ Public Class WebForm2
         Next
 
         If balidazioa = True Then
-            Response.Redirect("Erreserbatu.aspx?erabiltzailea=", erabiltzailea)
+            Response.Redirect("Erabiltzaile_erreserbak.aspx?erabiltzailea=", erabiltzailea)
         End If
 
     End Sub

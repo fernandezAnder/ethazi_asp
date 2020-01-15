@@ -16,6 +16,9 @@
             margin-left: 44px;
             text-align: left;
         }
+        .auto-style3 {
+            margin-left: 1680px;
+        }
         </style>
 </head>
 <body>
@@ -48,6 +51,10 @@
              </asp:GridView>
 
         &nbsp;</p>
+
+        <div class="auto-style3">
+            <asp:Button ID="Button2" runat="server" Text="Erreserbatu" />
+        </div>
 
     </form>
     <p>

@@ -18,9 +18,9 @@ Public Class WebForm4
         Dim ds As New DataSet
         Dim SQL As String = "SELECT  er.id_Erreserba, os.Izena, os.Deskribapena, os.Kokapena, os.Telefonoa, os.Email
 	                            FROM erreserba er, ostatu os, erabiltzaile era
-		                            WHERE erabiltzaile.id_erabiltzaile = erreserba.id_Erabiltzaile 
-		                            AND erreserba.id_Erreserba = ostatu.id_Ostatu 
-		                            AND erabiltzaile.id_erabiltzaile  = '" + erabiltzailea + "'"
+		                            WHERE era.id_erabiltzaile = er.id_Erabiltzaile 
+		                            AND er.id_Erreserba = os.id_Ostatu 
+		                            AND era.id_erabiltzaile  = '" + erabiltzailea + "'"
         Dim adaptador As New MySqlDataAdapter(SQL, conexionbd)
         ds.Tables.Add("tabla")
         adaptador.Fill(ds.Tables("tabla"))

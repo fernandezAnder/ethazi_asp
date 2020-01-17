@@ -49,16 +49,16 @@
         </p>
         <p style="margin-left: 40px">
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="261px" Width="1547px">
-                 <FooterStyle BackColor="White" ForeColor="#000066" />
-                 <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-                 <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-                 <RowStyle ForeColor="#000066" />
-                 <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                 <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                 <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                 <SortedDescendingHeaderStyle BackColor="#00547E" />
+             <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" Height="261px" Width="1547px"  AllowPaging="True" PageSize="20" EnablePersistedSelection="True" GridLines="Horizontal">
+                 <FooterStyle BackColor="White" ForeColor="#333333" />
+                 <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                 <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                 <RowStyle ForeColor="#333333" BackColor="White" />
+                 <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                 <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                 <SortedAscendingHeaderStyle BackColor="#487575" />
+                 <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                 <SortedDescendingHeaderStyle BackColor="#275353" />
              </asp:GridView>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>

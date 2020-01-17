@@ -31,6 +31,7 @@ Public Class WebForm2
         Dim pasahitza As String = pasahitza_textua.text
         Dim SQL As MySqlCommand = conexionbd.CreateCommand()
         SQL.CommandText = "SELECT erabiltzaile, pasahitza from erabiltzaile"
+        conexionbd.Open()
         Dim rs As MySqlDataReader = SQL.ExecuteReader()
         Try
             conexionbd = New MySqlConnection()
@@ -70,20 +71,21 @@ Public Class WebForm2
         Next
 
         If balidazioa = True Then
-            Response.Redirect("Erreserbatu.aspx?erabiltzailea=", erabiltzailea)
+            Session.Add("erabiltzailea", erabiltzailea)
+            Response.Redirect("Erabiltzaile_erreserbak.aspx")
         End If
 
     End Sub
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
         Response.Redirect("Erregistratu.aspx")
 
     End Sub
 
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim erabiltzailea = "gonbidatua"
-        Response.Redirect("Erreserbatu.aspx?erabiltzailea=", erabiltzailea)
+        Session.Add("erabiltzailea", erabiltzailea)
+        Response.Redirect("Erreserbatu.aspx")
     End Sub
 
     Protected Sub erabiltzaile_textua_TextChanged(sender As Object, e As EventArgs) Handles erabiltzaile_textua.TextChanged

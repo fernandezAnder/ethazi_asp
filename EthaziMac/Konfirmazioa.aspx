@@ -18,6 +18,20 @@
             margin-left: 760px;
         }
     </style>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+   <script>
+        $(function () {
+            $("#datepicker2").datepicker();
+        });
+  </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -42,6 +56,7 @@
             Telefonoa:&nbsp;
             <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         </p>
+        <p class="auto-style3">Sartze data: <input type="text" id="datepicker">&nbsp;&nbsp;&nbsp;&nbsp; irtetze data: <input type="text" id="datepicker2"></p>
         <p class="auto-style25">
             Email:&nbsp;
             <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>

@@ -1,10 +1,12 @@
 ﻿Imports System.Windows.Forms
 Imports MySql.Data.MySqlClient
+Imports Mysqlx.XDevAPI.Relational
 
 Public Class WebForm1
     Inherits System.Web.UI.Page
     Dim conexionbd As MySqlConnection
     Dim erabiltzailea As String
+
 
 
 
@@ -40,8 +42,16 @@ Public Class WebForm1
     Protected Sub ImageButton1_Click(sender As Object, e As ImageClickEventArgs) Handles ImageButton1.Click
         Dim bilatzailea As String = TextBox1.Text
 
-
-
     End Sub
 
+    Protected Sub GridView2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView2.SelectedIndexChanged
+        Dim ostatu_id As Integer
+        Dim linea As GridViewRow = GridView2.SelectedRow
+
+        ostatu_id = linea.Cells(1).Text
+        MessageBox.Show(linea.Cells(1).Text)
+
+        Session.Add("ostatu_id", ostatu_id)
+        Response.Redirect("Konfirmazioa.aspx")
+    End Sub
 End Class

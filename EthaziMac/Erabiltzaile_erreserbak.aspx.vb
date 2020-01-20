@@ -26,6 +26,8 @@ Public Class WebForm4
         adaptador.Fill(ds.Tables("tabla"))
         GridView2.DataSource = ds.Tables("tabla")
         GridView2.DataBind()
+
     End Sub
+
 
 End Class

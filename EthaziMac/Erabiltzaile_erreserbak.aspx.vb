@@ -24,8 +24,6 @@ Public Class WebForm4
 
             rs.Read()
 
-
-
             While rs.Read
 
             End While

@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Windows.Forms
+Imports MySql.Data.MySqlClient
 
 Public Class WebForm4
     Inherits System.Web.UI.Page
@@ -12,6 +13,32 @@ Public Class WebForm4
         conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
         taulaBete()
+
+
+        Dim SQL As MySqlCommand = conexionbd.CreateCommand()
+        SQL.CommandText = "SELECT erabiltzaile from erabiltzaile"
+        conexionbd.Open()
+        Dim rs As MySqlDataReader = SQL.ExecuteReader()
+        Try
+
+
+            rs.Read()
+
+
+
+            While rs.Read
+
+            End While
+        Catch
+            MessageBox.Show("Barne errorea")
+        Finally
+            rs.Close()
+            conexionbd.Close()
+
+        End Try
+
+
+
         conexionbd.Close()
     End Sub
     Private Sub taulaBete()

@@ -56,13 +56,14 @@
             Telefonoa:&nbsp;
             <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         </p>
-        <p class="auto-style3">Sartze data: <input type="text" id="datepicker">&nbsp;&nbsp;&nbsp;&nbsp; irtetze data: <input type="text" id="datepicker2"></p>
+        <p class="auto-style3">Sartze data: <input type="text" id="datepicker" accesskey="datepicker">&nbsp;&nbsp;&nbsp;&nbsp; irtetze data: <input type="text" id="datepicker2"></p>
         <p class="auto-style25">
             Email:&nbsp;
             <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
         </p>
         <div class="auto-style3">
             <asp:Button ID="Button1" runat="server" Text="Ezeztatu" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;<asp:Button ID="Button2" runat="server" Text="Errserbatu" />
         </div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

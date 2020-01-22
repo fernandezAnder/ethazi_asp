@@ -82,7 +82,7 @@ Public Class WebForm3
 
     Private Sub insertBD(izen_abizenak As String, erabiltzailea As String, pasahitza As String, telefonoa As String, email As String)
         conexionbd.Open()
-        Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erabiltzaile`(`erabiltzaile`, `pasahitza`, `mail`, `telefonoa`, `Erabiltzaile_mota`, `Izen Abizenak`) VALUES ('" + erabiltzailea + "' , '" + pasahitza + "' , '" + email + "' , '" + telefonoa + "' , '1' , '" + izen_abizenak + "')", conexionbd)
+        Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erabiltzaile`(`erabiltzaile`, `pasahitza`, `mail`, `telefonoa`, `Erabiltzaile_mota`, `Izen Abizenak`) VALUES ('" + Metodoak.Encriptar(erabiltzailea) + "' , '" + Metodoak.Encriptar(pasahitza) + "' , '" + Metodoak.Encriptar(email) + "' , '" + Metodoak.Encriptar(telefonoa) + "' , '1' , '" + Metodoak.Encriptar(izen_abizenak) + "')", conexionbd)
         SQL.ExecuteNonQuery()
         conexionbd.Close()
     End Sub

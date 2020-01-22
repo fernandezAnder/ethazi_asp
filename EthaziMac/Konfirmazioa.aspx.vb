@@ -55,9 +55,9 @@ Public Class Konfirmazioa
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim id_erabiltzailea As String = ateraIdErabiltzaileDBBDD()
         Dim prezioInt As Integer = CInt(prezioa)
-        Dim Hasiera_data As String = 
+        'Dim Hasiera_data As String = 
 
-        insertBD(ostatu_id.ToString, id_erabiltzailea, prezioInt, Hasiera_data, Amaiera_data)
+        ' insertBD(ostatu_id.ToString, id_erabiltzailea, prezioInt, Hasiera_data, Amaiera_data)
     End Sub
 
     Private Function ateraIdErabiltzaileDBBDD()

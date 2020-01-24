@@ -13,7 +13,6 @@ Public Class Konfirmazioa
 
         ostatu_id = Session("ostatu_id")
         erabiltzailea = Session("erabiltzailea")
-
         datuakBistaratu()
 
     End Sub
@@ -22,7 +21,7 @@ Public Class Konfirmazioa
         conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
 
         Dim SQL As MySqlCommand = conexionbd.CreateCommand()
-        SQL.CommandText = "SELECT * from ostatu WHERE id_Ostatu = '" + ostatu_id + "'"
+        SQL.CommandText = "SELECT * from ostatu WHERE id_Ostatu = '" + ostatu_id.ToString + "'"
         conexionbd.Open()
         Dim rs As MySqlDataReader = SQL.ExecuteReader()
         Try
@@ -55,10 +54,10 @@ Public Class Konfirmazioa
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim id_erabiltzailea As String = ateraIdErabiltzaileDBBDD()
         Dim prezioInt As Integer = CInt(prezioa)
-        Dim Hasiera_data As String = TextBox1.Text
-        Dim Amaiera_data As String = TextBox2.Text
+        Dim Hasiera_data As String = calendario.Text
+        Dim Amaiera_data As String = calendario2.Text
 
-        insertBD(ostatu_id.ToString, id_erabiltzailea, prezioInt, Hasiera_data, Amaiera_data)
+        insertBD(ostatu_id.ToString, id_erabiltzailea.ToString, prezioInt, Hasiera_data, Amaiera_data)
     End Sub
 
     Private Function ateraIdErabiltzaileDBBDD()
@@ -91,12 +90,10 @@ Public Class Konfirmazioa
 
     Private Sub insertBD(ostatu_id As String, id_erabiltzailea As String, PrezioaGuztira As Integer, Hasiera_data As String, Amaiera_data As String)
         conexionbd.Open()
-        Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erreserba`(`id_Ostatu`, `id_Erabiltzaile`, `PrezioaGuztira`, `Hasiera_data`, `Amaiera_data`) VALUES ( '" + ostatu_id + "' , '" + id_erabiltzailea + ", '" + PrezioaGuztira + ", '" + Hasiera_data + ", '" + Amaiera_data + "')", conexionbd)
+        Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erreserba`(`id_Ostatu`, `id_Erabiltzaile`, `PrezioaGuztira`, `Hasiera_data`, `Amaiera_data`) VALUES ( '" + ostatu_id.ToString + "' , '" + id_erabiltzailea.ToString + ", '" + PrezioaGuztira + ", '" + Hasiera_data.ToString + ", '" + Amaiera_data.ToString + "')", conexionbd)
         SQL.ExecuteNonQuery()
         conexionbd.Close()
     End Sub
 
-    Protected Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
 
-    End Sub
 End Class

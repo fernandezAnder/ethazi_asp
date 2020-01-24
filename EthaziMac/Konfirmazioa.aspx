@@ -63,11 +63,11 @@
             runat="server"
             >
         </asp:ScriptManager>
-        <p class="auto-style3">Sartze data: &nbsp;&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <ajaxToolkit:CalendarExtender ID="TextBox1_CalendarExtender" runat="server" TargetControlID="TextBox1" />
+        <p class="auto-style3">Sartze data: &nbsp;&nbsp;<asp:TextBox ID="calendario" runat="server"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="calendario_CalendarExtender" runat="server" TargetControlID="TextBox1" />
             &nbsp;&nbsp; irtetze data:
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-            <ajaxToolkit:CalendarExtender ID="TextBox2_CalendarExtender" runat="server" TargetControlID="TextBox2" />
+            <asp:TextBox ID="calendario2" runat="server"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="calendario2_CalendarExtender" runat="server" TargetControlID="TextBox2" />
         </p>
         <p class="auto-style25">
             Email:&nbsp;

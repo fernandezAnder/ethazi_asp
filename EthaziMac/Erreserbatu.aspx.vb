@@ -76,7 +76,7 @@ Public Class WebForm1
             sql = sql + "Ostatu_mota = 'Casas Rurales'"
         End If
         If Checkbox2.Checked Then
-            If Checkbox1.Checked Or Checkbox3.Checked Then
+            If Checkbox1.Checked Or Checkbox3.Checked Or Checkbox4.Checked Then
                 alberge_checkbox = True
                 sql = sql + " AND Ostatu_mota = 'Albergues'"
             Else
@@ -86,7 +86,7 @@ Public Class WebForm1
 
         End If
         If Checkbox3.Checked Then
-            If Checkbox1.Checked Or Checkbox2.Checked Then
+            If Checkbox1.Checked Or Checkbox2.Checked Or Checkbox4.Checked Then
                 kanping_checkbox = True
                 sql = sql + " AND Ostatu_mota = 'Campings'"
             Else
@@ -95,15 +95,13 @@ Public Class WebForm1
         End If
 
         If Checkbox4.Checked Then
+            agroturismo_checkbox = True
             If Checkbox1.Checked Or Checkbox2.Checked Or Checkbox3.Checked Then
-                agroturismo_checkbox = True
                 sql = sql + " AND Ostatu_mota = 'Agroturismos'"
             Else
                 sql = sql + " Ostatu_mota = 'Agroturismos'"
             End If
         End If
-
-
 
 
         If RadioButton1.Checked Then

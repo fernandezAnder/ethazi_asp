@@ -68,40 +68,40 @@ Partial Public Class Konfirmazioa
     Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
 
     '''<summary>
-    '''Control TextBox1.
+    '''Control calendario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents calendario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control TextBox1_CalendarExtender.
+    '''Control calendario_CalendarExtender.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TextBox1_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
+    Protected WithEvents calendario_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
 
     '''<summary>
-    '''Control TextBox2.
+    '''Control calendario2.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents calendario2 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control TextBox2_CalendarExtender.
+    '''Control calendario2_CalendarExtender.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TextBox2_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
+    Protected WithEvents calendario2_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
 
     '''<summary>
     '''Control Label5.

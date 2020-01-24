@@ -3,30 +3,9 @@ Imports System.Text
 Imports System
 Public Class Metodoak
 
-
-    Public Shared Function encriptarMD5(ByVal input As String) As String
-
-        Dim md5Hasher As MD5 = MD5.Create()
-
-        Dim data As Byte() = md5Hasher.ComputeHash(Encoding.Default.GetBytes(input))
-
-
-        Dim sBuilder As New StringBuilder()
-
-
-        Dim i As Integer
-        For i = 0 To data.Length - 1
-            sBuilder.Append(data(i).ToString("x2"))
-        Next i
-
-        Return sBuilder.ToString()
-
-    End Function
-
-
     Shared Function verificarMD5(ByVal input As String, ByVal hash As String) As Boolean
 
-        Dim hashOfInput As String = encriptarMD5(input)
+        Dim hashOfInput As String = Md5FromString(input)
         Dim comparer As StringComparer = StringComparer.OrdinalIgnoreCase
 
         If 0 = comparer.Compare(hashOfInput, hash) Then
@@ -38,28 +17,29 @@ Public Class Metodoak
     End Function
 
 
-    Shared Function Encriptar(ByVal Input As String) As String
 
-        Dim IV() As Byte = ASCIIEncoding.ASCII.GetBytes("qualityi") 'La clave debe ser de 8 caracteres
-        Dim EncryptionKey() As Byte = Convert.FromBase64String("rpaSPvIvVLlrcmtzPU9/c67Gkj7yL1S5") 'No se puede alterar la cantidad de caracteres pero si la clave
-        Dim buffer() As Byte = Encoding.UTF8.GetBytes(Input)
-        Dim des As TripleDESCryptoServiceProvider = New TripleDESCryptoServiceProvider
-        des.Key = EncryptionKey
-        des.IV = IV
+    Shared Function Md5FromString(ByVal Source As String) As String
+        Dim Bytes() As Byte
+        Dim sb As New StringBuilder()
 
-        Return Convert.ToBase64String(des.CreateEncryptor().TransformFinalBlock(buffer, 0, buffer.Length()))
+        'Check for empty string.
+        If String.IsNullOrEmpty(Source) Then
+            Throw New ArgumentNullException
+        End If
 
-    End Function
+        'Get bytes from string.
+        Bytes = Encoding.Default.GetBytes(Source)
 
-    Shared Function Desencriptar(ByVal Input As String) As String
+        'Get md5 hash
+        Bytes = MD5.Create().ComputeHash(Bytes)
 
-        Dim IV() As Byte = ASCIIEncoding.ASCII.GetBytes("qualityi") 'La clave debe ser de 8 caracteres
-        Dim EncryptionKey() As Byte = Convert.FromBase64String("rpaSPvIvVLlrcmtzPU9/c67Gkj7yL1S5") 'No se puede alterar la cantidad de caracteres pero si la clave
-        Dim buffer() As Byte = Convert.FromBase64String(Input)
-        Dim des As TripleDESCryptoServiceProvider = New TripleDESCryptoServiceProvider
-        des.Key = EncryptionKey
-        des.IV = IV
-        Return Encoding.UTF8.GetString(des.CreateDecryptor().TransformFinalBlock(buffer, 0, buffer.Length()))
+        'Loop though the byte array and convert each byte to hex.
+        For x As Integer = 0 To Bytes.Length - 1
+            sb.Append(Bytes(x).ToString("x2"))
+        Next
+
+        'Return md5 hash.
+        Return sb.ToString()
 
     End Function
 

@@ -60,4 +60,67 @@ Public Class WebForm1
         taulaBeteGonbidatua()
 
     End Sub
+
+    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim tabla As String = "ostatu"
+        Dim kokapena As String = DropDownList1.Text
+        Dim ruraletxea_checkbox As Boolean = False
+        Dim kanping_checkbox As Boolean = False
+        Dim alberge_checkbox As Boolean = False
+        Dim agroturismo_checkbox As Boolean = False
+        Dim logela_libreak As Boolean = False
+        Dim sql As String = "SELECT * FROM ostatu WHERE "
+
+        If Checkbox1.Checked Then
+            ruraletxea_checkbox = True
+            sql = sql + "Ostatu_mota = 'Casas Rurales'"
+        End If
+        If Checkbox2.Checked Then
+            If Checkbox1.Checked Or Checkbox3.Checked Then
+                alberge_checkbox = True
+                sql = sql + " AND Ostatu_mota = 'Albergues'"
+            Else
+                sql = sql + " Ostatu_mota = 'Albergues'"
+
+            End If
+
+        End If
+        If Checkbox3.Checked Then
+            If Checkbox1.Checked Or Checkbox2.Checked Then
+                kanping_checkbox = True
+                sql = sql + " AND Ostatu_mota = 'Campings'"
+            Else
+                sql = sql + " Ostatu_mota = 'Campings'"
+            End If
+        End If
+
+        If Checkbox4.Checked Then
+            If Checkbox1.Checked Or Checkbox2.Checked Or Checkbox3.Checked Then
+                agroturismo_checkbox = True
+                sql = sql + " AND Ostatu_mota = 'Agroturismos'"
+            Else
+                sql = sql + " Ostatu_mota = 'Agroturismos'"
+            End If
+        End If
+
+
+
+
+        If RadioButton1.Checked Then
+            logela_libreak = True
+        End If
+        If RadioButton2.Checked Then
+            logela_libreak = False
+            RadioButton1.Checked = False
+        End If
+
+        Dim ds As New DataSet
+        Dim ostatu As String = TextBox1.Text
+
+        Dim adaptador As New MySqlDataAdapter(sql, conexionbd)
+        ds.Tables.Add("tabla")
+        adaptador.Fill(ds.Tables("tabla"))
+        GridView2.DataSource = ds.Tables("tabla")
+        GridView2.DataBind()
+    End Sub
 End Class

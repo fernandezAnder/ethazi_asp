@@ -42,12 +42,12 @@ Public Class WebForm2
 
             rs.Read()
 
-            array_erabiltzaileak.Add(Metodoak.Desencriptar(rs(0).ToString))
-            array_pasahitzak.Add(Metodoak.Desencriptar(rs(1).ToString))
+            array_erabiltzaileak.Add((rs(0).ToString))
+            array_pasahitzak.Add((rs(1).ToString))
             While rs.Read
 
-                array_erabiltzaileak.Add(Metodoak.Desencriptar(rs(0).ToString))
-                array_pasahitzak.Add(Metodoak.Desencriptar(rs(1).ToString))
+                array_erabiltzaileak.Add((rs(0).ToString))
+                array_pasahitzak.Add((rs(1).ToString))
 
             End While
         Catch
@@ -63,7 +63,7 @@ Public Class WebForm2
 
             If (izena.Equals(erabiltzailea)) Then
                 For Each bd_pasahitza As String In array_pasahitzak
-                    If bd_pasahitza.Equals(pasahitza) Then
+                    If Metodoak.verificarMD5(pasahitza, bd_pasahitza) Then
                         balidazioa = True
                     End If
                 Next

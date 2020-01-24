@@ -86,6 +86,15 @@ Partial Public Class WebForm1
     Protected WithEvents Checkbox3 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
+    '''Control Checkbox4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Checkbox4 As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
     '''Control RadioButton1.
     '''</summary>
     '''<remarks>

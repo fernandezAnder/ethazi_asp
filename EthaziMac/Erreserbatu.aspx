@@ -37,12 +37,14 @@
             <asp:DropDownList ID="DropDownList1" runat="server">
             </asp:DropDownList>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;Ostatu Mota:</strong>
-            <asp:CheckBox ID="Checkbox1" runat="server" Text="Apartamentua" />
+            <asp:CheckBox ID="Checkbox1" runat="server" Text="Rural Etxeak" />
 &nbsp;
             <asp:CheckBox ID="Checkbox2" runat="server" Text="Alberge" />
 &nbsp;
             <asp:CheckBox ID="Checkbox3" runat="server" Text="Kanping" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Logela Libreak :</strong>
+&nbsp;&nbsp;&nbsp;
+            <asp:CheckBox ID="Checkbox4" runat="server" Text="AgroTurismoa" />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Logela Libreak :</strong>
             <asp:RadioButton ID="RadioButton1" runat="server" Text="Bai" />
             <asp:RadioButton ID="RadioButton2" runat="server" Text="Ez" />
         &nbsp;&nbsp;&nbsp;&nbsp;

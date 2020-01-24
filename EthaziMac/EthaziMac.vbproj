@@ -127,6 +127,7 @@
     <Content Include="Erabiltzaile_erreserbak.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Metodoak.vb" />
     <Compile Include="Konfirmazioa.aspx.designer.vb">
       <DependentUpon>Konfirmazioa.aspx</DependentUpon>
     </Compile>

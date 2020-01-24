@@ -45,6 +45,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Logela Libreak :</strong>
             <asp:RadioButton ID="RadioButton1" runat="server" Text="Bai" />
             <asp:RadioButton ID="RadioButton2" runat="server" Text="Ez" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+             <asp:Button ID="Button1" runat="server" Text="Bilatu" />
         </p>
         <p style="margin-left: 40px">
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

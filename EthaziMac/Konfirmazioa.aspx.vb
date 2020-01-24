@@ -55,7 +55,8 @@ Public Class Konfirmazioa
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim id_erabiltzailea As String = ateraIdErabiltzaileDBBDD()
         Dim prezioInt As Integer = CInt(prezioa)
-        Dim Hasiera_data As String = 
+        Dim Hasiera_data As String = TextBox1.Text
+        Dim Amaiera_data As String = TextBox2.Text
 
         insertBD(ostatu_id.ToString, id_erabiltzailea, prezioInt, Hasiera_data, Amaiera_data)
     End Sub
@@ -93,5 +94,9 @@ Public Class Konfirmazioa
         Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erreserba`(`id_Ostatu`, `id_Erabiltzaile`, `PrezioaGuztira`, `Hasiera_data`, `Amaiera_data`) VALUES ( '" + ostatu_id + "' , '" + id_erabiltzailea + ", '" + PrezioaGuztira + ", '" + Hasiera_data + ", '" + Amaiera_data + "')", conexionbd)
         SQL.ExecuteNonQuery()
         conexionbd.Close()
+    End Sub
+
+    Protected Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+
     End Sub
 End Class

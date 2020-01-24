@@ -54,5 +54,9 @@ Public Class WebForm4
 
     End Sub
 
+    Protected Sub GridView2_SelectedIndexChanging(sender As Object, e As GridViewSelectEventArgs) Handles GridView2.SelectedIndexChanging
+        GridView2.PageIndex = e.NewSelectedIndex
+        taulaBete()
 
+    End Sub
 End Class

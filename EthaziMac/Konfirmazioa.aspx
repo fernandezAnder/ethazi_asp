@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Konfirmazioa.aspx.vb" Inherits="EthaziMac.Konfirmazioa" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -56,7 +58,17 @@
             Telefonoa:&nbsp;
             <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         </p>
-        <p class="auto-style3">Sartze data: <input type="text" id="datepicker" accesskey="datepicker">&nbsp;&nbsp;&nbsp;&nbsp; irtetze data: <input type="text" id="datepicker2"></p>
+          <asp:ScriptManager 
+            ID="ScriptManager1"
+            runat="server"
+            >
+        </asp:ScriptManager>
+        <p class="auto-style3">Sartze data: &nbsp;&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="TextBox1_CalendarExtender" runat="server" TargetControlID="TextBox1" />
+            &nbsp;&nbsp; irtetze data:
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="TextBox2_CalendarExtender" runat="server" TargetControlID="TextBox2" />
+        </p>
         <p class="auto-style25">
             Email:&nbsp;
             <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>

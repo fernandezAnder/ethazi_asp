@@ -54,4 +54,10 @@ Public Class WebForm1
         Session.Add("ostatu_id", ostatu_id)
         Response.Redirect("Konfirmazioa.aspx")
     End Sub
+
+    Protected Sub GridView2_SelectedIndexChanging(sender As Object, e As GridViewSelectEventArgs) Handles GridView2.SelectedIndexChanging
+        GridView2.PageIndex = e.NewSelectedIndex
+        taulaBeteGonbidatua()
+
+    End Sub
 End Class

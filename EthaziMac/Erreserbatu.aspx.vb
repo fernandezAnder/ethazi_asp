@@ -6,7 +6,7 @@ Public Class WebForm1
     Inherits System.Web.UI.Page
     Dim conexionbd As MySqlConnection
     Dim erabiltzailea As String
-
+    Dim array_kokapena As ArrayList = New ArrayList()
 
 
 
@@ -17,15 +17,40 @@ Public Class WebForm1
         conexionbd = New MySqlConnection()
         conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
+        taulaBeteGonbidatua()
+        KokapenaBeteBD()
 
-
-        If erabiltzailea.Equals("gonbidatua") Then
-            taulaBeteGonbidatua()
-        Else
-            MessageBox.Show("Barne Errorea")
-        End If
         conexionbd.Close()
 
+    End Sub
+
+    Private Sub KokapenaBeteBD()
+        conexionbd = New MySqlConnection()
+        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
+        Dim SQL As MySqlCommand = conexionbd.CreateCommand()
+        SQL.CommandText = "SELECT DISTINCT(Kokapena) FROM ostatu"
+        conexionbd.Open()
+        Dim rs As MySqlDataReader = SQL.ExecuteReader()
+        Try
+            rs.Read()
+            array_kokapena.Add(rs(0).ToString)
+            While rs.Read
+                array_kokapena.Add(rs(0).ToString)
+            End While
+        Catch
+            MessageBox.Show("Barne errorea")
+        Finally
+            rs.Close()
+            conexionbd.Close()
+        End Try
+
+
+        For Each kokapena As String In array_kokapena
+
+            If kokapena IsNot "" Or kokapena IsNot " " Then
+                DropDownList1.Items.Add(kokapena)
+            End If
+        Next
     End Sub
 
     Private Sub taulaBeteGonbidatua()
@@ -57,7 +82,9 @@ Public Class WebForm1
 
     Protected Sub GridView2_SelectedIndexChanging(sender As Object, e As GridViewSelectEventArgs) Handles GridView2.SelectedIndexChanging
         GridView2.PageIndex = e.NewSelectedIndex
+        conexionbd.Open()
         taulaBeteGonbidatua()
+        conexionbd.Close()
 
     End Sub
 
@@ -71,14 +98,24 @@ Public Class WebForm1
         Dim logela_libreak As Boolean = False
         Dim sql As String = "SELECT * FROM ostatu WHERE "
 
+
+        If kokapena IsNot "" Then
+            sql = sql + "Kokapena = '" + kokapena + "'"
+        End If
+
         If Checkbox1.Checked Then
-            ruraletxea_checkbox = True
-            sql = sql + "Ostatu_mota = 'Casas Rurales'"
+            If kokapena IsNot "" Then
+                sql = sql + " AND Ostatu_mota = 'Casas Rurales'"
+            Else
+                sql = sql + "Ostatu_mota = 'Casas Rurales'"
+            End If
+            'ruraletxea_checkbox = True
+
         End If
         If Checkbox2.Checked Then
-            If Checkbox1.Checked Or Checkbox3.Checked Or Checkbox4.Checked Then
-                alberge_checkbox = True
-                sql = sql + " AND Ostatu_mota = 'Albergues'"
+            If Checkbox1.Checked Then
+                ' alberge_checkbox = True
+                sql = sql + " OR Ostatu_mota = 'Albergues'"
             Else
                 sql = sql + " Ostatu_mota = 'Albergues'"
 
@@ -86,18 +123,18 @@ Public Class WebForm1
 
         End If
         If Checkbox3.Checked Then
-            If Checkbox1.Checked Or Checkbox2.Checked Or Checkbox4.Checked Then
-                kanping_checkbox = True
-                sql = sql + " AND Ostatu_mota = 'Campings'"
+            If Checkbox2.Checked Then
+                ' kanping_checkbox = True
+                sql = sql + " OR Ostatu_mota = 'Campings'"
             Else
                 sql = sql + " Ostatu_mota = 'Campings'"
             End If
         End If
 
         If Checkbox4.Checked Then
-            agroturismo_checkbox = True
-            If Checkbox1.Checked Or Checkbox2.Checked Or Checkbox3.Checked Then
-                sql = sql + " AND Ostatu_mota = 'Agroturismos'"
+            ' agroturismo_checkbox = True
+            If Checkbox3.Checked Then
+                sql = sql + " OR Ostatu_mota = 'Agroturismos'"
             Else
                 sql = sql + " Ostatu_mota = 'Agroturismos'"
             End If
@@ -105,10 +142,10 @@ Public Class WebForm1
 
 
         If RadioButton1.Checked Then
-            logela_libreak = True
+            'logela_libreak = True
         End If
         If RadioButton2.Checked Then
-            logela_libreak = False
+            ' logela_libreak = False
             RadioButton1.Checked = False
         End If
 

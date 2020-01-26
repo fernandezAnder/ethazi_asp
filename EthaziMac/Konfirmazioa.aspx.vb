@@ -42,6 +42,7 @@ Public Class Konfirmazioa
             Label3.Text = Kokapena
             Label4.Text = telefonoa
             Label5.Text = email
+            Label6.Text = prezioa
         Catch
             MessageBox.Show("Barne errorea")
         Finally
@@ -52,16 +53,17 @@ Public Class Konfirmazioa
     End Sub
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim id_erabiltzailea As String = ateraIdErabiltzaileDBBDD()
-        Dim prezioInt As Integer = CInt(prezioa)
+        Dim id_erabiltzailea_string As String = ateraIdErabiltzaileDBBDD()
+        Dim id_erabiltzailea As Int32 = CInt(id_erabiltzailea_string)
+        Dim prezioInt As Int32 = CInt(prezioa)
         Dim Hasiera_data As String = calendario.Text
         Dim Amaiera_data As String = calendario2.Text
 
-        insertBD(ostatu_id.ToString, id_erabiltzailea.ToString, prezioInt, Hasiera_data, Amaiera_data)
+        insertBD(ostatu_id, id_erabiltzailea, prezioInt, Hasiera_data, Amaiera_data)
     End Sub
 
     Private Function ateraIdErabiltzaileDBBDD()
-        Dim id_erabiltzaile As String
+        Dim id_erabiltzaile_string2 As String
         conexionbd = New MySqlConnection()
         conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
 
@@ -75,7 +77,7 @@ Public Class Konfirmazioa
             conexionbd.Open()
             rs.Read()
 
-            id_erabiltzaile = (rs(0).ToString)
+            id_erabiltzaile_string2 = (rs(0).ToString)
 
         Catch
             MessageBox.Show("Barne errorea")
@@ -85,12 +87,12 @@ Public Class Konfirmazioa
 
         End Try
 
-        Return id_erabiltzaile
+        Return id_erabiltzaile_string2
     End Function
 
-    Private Sub insertBD(ostatu_id As String, id_erabiltzailea As String, PrezioaGuztira As Integer, Hasiera_data As String, Amaiera_data As String)
+    Private Sub insertBD(ostatu_id As Int32, id_erabiltzailea As Int32, PrezioaGuztira As Int32, Hasiera_data As String, Amaiera_data As String)
         conexionbd.Open()
-        Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erreserba`(`id_Ostatu`, `id_Erabiltzaile`, `PrezioaGuztira`, `Hasiera_data`, `Amaiera_data`) VALUES ( '" + ostatu_id.ToString + "' , '" + id_erabiltzailea.ToString + ", '" + PrezioaGuztira + ", '" + Hasiera_data.ToString + ", '" + Amaiera_data.ToString + "')", conexionbd)
+        Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erreserba`(`id_Ostatu`, `id_Erabiltzaile`, `hasieraData`, `amaieraData`, `prezioGuztira`) VALUES (" + ostatu_id + " ," + id_erabiltzailea + ",'" + Hasiera_data + "','" + Amaiera_data + "'," + CDbl(PrezioaGuztira) + ")", conexionbd)
         SQL.ExecuteNonQuery()
         conexionbd.Close()
     End Sub

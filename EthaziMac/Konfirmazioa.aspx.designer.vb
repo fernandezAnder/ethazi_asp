@@ -59,6 +59,15 @@ Partial Public Class Konfirmazioa
     Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''Control Label6.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Control ScriptManager1.
     '''</summary>
     '''<remarks>

@@ -58,16 +58,20 @@
             Telefonoa:&nbsp;
             <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         </p>
+        <p class="auto-style25">
+            Prezio Totala:
+            <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+        </p>
           <asp:ScriptManager 
             ID="ScriptManager1"
             runat="server"
             >
         </asp:ScriptManager>
         <p class="auto-style3">Sartze data: &nbsp;&nbsp;<asp:TextBox ID="calendario" runat="server"></asp:TextBox>
-            <ajaxToolkit:CalendarExtender ID="calendario_CalendarExtender" runat="server" TargetControlID="TextBox1" />
+            <ajaxToolkit:CalendarExtender ID="calendario_CalendarExtender" runat="server" TargetControlID="calendario" />
             &nbsp;&nbsp; irtetze data:
             <asp:TextBox ID="calendario2" runat="server"></asp:TextBox>
-            <ajaxToolkit:CalendarExtender ID="calendario2_CalendarExtender" runat="server" TargetControlID="TextBox2" />
+            <ajaxToolkit:CalendarExtender ID="calendario2_CalendarExtender" runat="server" TargetControlID="calendario2" />
         </p>
         <p class="auto-style25">
             Email:&nbsp;

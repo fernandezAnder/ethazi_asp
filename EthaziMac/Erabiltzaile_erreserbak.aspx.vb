@@ -16,11 +16,14 @@ Public Class WebForm4
         conexionbd.Close()
 
 
+
+
+
     End Sub
     Private Sub taulaBete()
 
         Dim ds As New DataSet
-        Dim SQL As String = "SELECT er.id_Erreserba,er.Hasiera_data,er.Amaiera_data,er.PrezioaGuztira, os.Izena, os.Deskribapena, os.Kokapena, os.Telefonoa, os.Email 
+        Dim SQL As String = "SELECT er.id_Erreserba,er.hasieraData,er.amaieraData,er.prezioGuztira, os.Izena, os.Deskribapena, os.Kokapena, os.Telefonoa, os.Email 
                             FROM erreserba er, ostatu os, erabiltzaile era 
                             WHERE era.id_erabiltzaile = er.id_Erabiltzaile 
                             AND er.id_Erreserba = os.id_Ostatu 
@@ -52,7 +55,7 @@ Public Class WebForm4
     Private Sub taulaBeteBilatu()
         Dim ds As New DataSet
         Dim ostatu As String = TextBox1.Text
-        Dim SQL As String = "SELECT er.id_Erreserba,er.Hasiera_data,er.Amaiera_data,er.PrezioaGuztira, os.Izena, os.Deskribapena, os.Kokapena, os.Telefonoa, os.Email FROM erreserba er, ostatu os, erabiltzaile era WHERE era.id_erabiltzaile = er.id_Erabiltzaile AND er.id_Erreserba = os.id_Ostatu AND os.Izena like '%" + ostatu + "%'"
+        Dim SQL As String = "SELECT er.id_Erreserba,er.hasieraData,er.amaieraData,er.prezioGuztira, os.Izena, os.Deskribapena, os.Kokapena, os.Telefonoa, os.Email  FROM erreserba er, ostatu os, erabiltzaile era WHERE era.id_erabiltzaile = er.id_Erabiltzaile AND er.id_Erreserba = os.id_Ostatu AND os.Izena like '%" + ostatu + "%'"
         Dim adaptador As New MySqlDataAdapter(SQL, conexionbd)
         ds.Tables.Add("tabla")
         adaptador.Fill(ds.Tables("tabla"))
@@ -60,8 +63,9 @@ Public Class WebForm4
         GridView2.DataBind()
     End Sub
 
-    Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 
+
+    Protected Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Response.Redirect("Erreserbatu.aspx")
     End Sub
 End Class

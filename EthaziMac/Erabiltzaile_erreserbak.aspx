@@ -34,7 +34,7 @@
 &nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="24px" ImageUrl="../imagenes/lupa.jpg" Width="30px" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </h3>
-        <p style="margin-left: 40px">
+       <p style="margin-left: 40px">
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              <asp:GridView ID="GridView2" DataKeyNames="id" runat="server" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" Height="261px" Width="1547px"  AllowPaging="True" PageSize="20" EnablePersistedSelection="True" GridLines="Horizontal">
                  <FooterStyle BackColor="White" ForeColor="#333333" />

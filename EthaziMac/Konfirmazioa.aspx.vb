@@ -54,12 +54,14 @@ Public Class Konfirmazioa
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim id_erabiltzailea_string As String = ateraIdErabiltzaileDBBDD()
-        Dim id_erabiltzailea As Int32 = CInt(id_erabiltzailea_string)
-        Dim prezioInt As Int32 = CInt(prezioa)
+
+        Dim preziostring As String = prezioa
         Dim Hasiera_data As String = calendario.Text
         Dim Amaiera_data As String = calendario2.Text
 
-        insertBD(ostatu_id, id_erabiltzailea, prezioInt, Hasiera_data, Amaiera_data)
+        insertBD(ostatu_id.ToString, id_erabiltzailea_string, preziostring, Hasiera_data, Amaiera_data)
+
+        Response.Redirect("Erreserbatu.aspx")
     End Sub
 
     Private Function ateraIdErabiltzaileDBBDD()
@@ -90,9 +92,10 @@ Public Class Konfirmazioa
         Return id_erabiltzaile_string2
     End Function
 
-    Private Sub insertBD(ostatu_id As Int32, id_erabiltzailea As Int32, PrezioaGuztira As Int32, Hasiera_data As String, Amaiera_data As String)
+    Private Sub insertBD(ostatu_id As String, id_erabiltzailea As String, PrezioaGuztira As String, Hasiera_data As String, Amaiera_data As String)
         conexionbd.Open()
-        Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erreserba`(`id_Ostatu`, `id_Erabiltzaile`, `hasieraData`, `amaieraData`, `prezioGuztira`) VALUES (" + ostatu_id + " ," + id_erabiltzailea + ",'" + Hasiera_data + "','" + Amaiera_data + "'," + CDbl(PrezioaGuztira) + ")", conexionbd)
+
+        Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erreserba`(`id_Ostatu`, `id_Erabiltzaile`, `hasieraData`, `amaieraData`, `prezioGuztira`) VALUES (" + ostatu_id + " ," + id_erabiltzailea + ",'" + Hasiera_data + "','" + Amaiera_data + "'," + PrezioaGuztira + ")", conexionbd)
         SQL.ExecuteNonQuery()
         conexionbd.Close()
     End Sub

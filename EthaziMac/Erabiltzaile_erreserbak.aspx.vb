@@ -32,7 +32,6 @@ Public Class WebForm4
         ds.Tables.Add("tabla")
         adaptador.Fill(ds.Tables("tabla"))
         GridView2.DataSource = ds.Tables("tabla")
-
         GridView2.DataBind()
 
     End Sub

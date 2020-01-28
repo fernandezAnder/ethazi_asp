@@ -43,23 +43,23 @@
                 &nbsp;</p>
         </div>
         <p class="auto-style25">
-            Izena:
+            <strong>Izena:</strong>
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        </p>
-        <p class="auto-style25">
-            Deskribapena:&nbsp;
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-        </p>
-        <p class="auto-style25">
-            Kokapena:&nbsp;
+        &nbsp;&nbsp;&nbsp; <strong>Kokapena:</strong>&nbsp;
             <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
         </p>
         <p class="auto-style25">
-            Telefonoa:&nbsp;
+            <strong>Telefonoa:</strong>&nbsp;
             <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+        &nbsp;&nbsp;&nbsp; <strong>Email:</strong>&nbsp;
+            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
         </p>
         <p class="auto-style25">
-            Prezio Totala:
+            <strong>Deskribapena:</strong>&nbsp;
+            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        </p>
+        <p class="auto-style25">
+            <strong>Prezio Totala:</strong>
             <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
         </p>
           <asp:ScriptManager 
@@ -67,15 +67,11 @@
             runat="server"
             >
         </asp:ScriptManager>
-        <p class="auto-style3">Sartze data: &nbsp;&nbsp;<asp:TextBox ID="calendario" runat="server"></asp:TextBox>
+        <p class="auto-style3"><strong>Sartze data:</strong> &nbsp;&nbsp;<asp:TextBox ID="calendario" runat="server"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="calendario_CalendarExtender" runat="server" TargetControlID="calendario" />
-            &nbsp;&nbsp; irtetze data:
-            <asp:TextBox ID="calendario2" runat="server"></asp:TextBox>
+            &nbsp;&nbsp;<strong> Irtetze data:</strong>
+            <asp:TextBox ID="calendario2" runat="server" ReadOnly="True"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="calendario2_CalendarExtender" runat="server" TargetControlID="calendario2" />
-        </p>
-        <p class="auto-style25">
-            Email:&nbsp;
-            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
         </p>
         <div class="auto-style3">
             <asp:Button ID="Button1" runat="server" Text="Ezeztatu" />

@@ -25,9 +25,6 @@ Public Class Konfirmazioa
         conexionbd.Open()
         Dim rs As MySqlDataReader = SQL.ExecuteReader()
         Try
-            conexionbd = New MySqlConnection()
-            conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
-            conexionbd.Open()
             rs.Read()
 
             Dim izena As String = (rs(1).ToString)

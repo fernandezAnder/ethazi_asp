@@ -44,15 +44,12 @@
             <asp:CheckBox ID="Checkbox3" runat="server" Text="Kanping" />
 &nbsp;&nbsp;&nbsp;
             <asp:CheckBox ID="Checkbox4" runat="server" Text="AgroTurismoa" />
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Logela Libreak :</strong>
-            <asp:RadioButton ID="RadioButton1" runat="server" Text="Bai" />
-            <asp:RadioButton ID="RadioButton2" runat="server" Text="Ez" />
-        &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp;
              <asp:Button ID="Button1" runat="server" Text="Bilatu" />
         </p>
         <p style="margin-left: 40px">
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="269px" Width="1707px"  AllowPaging="True" PageSize="20">
+             <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="130px" Width="1707px"  AllowPaging="True" PageSize="20">
                  <Columns>
                      <asp:CommandField ButtonType="Button" SelectText="Erreserbatu" ShowSelectButton="True" />
                  </Columns>

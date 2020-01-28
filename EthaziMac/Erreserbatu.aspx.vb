@@ -80,13 +80,6 @@ Public Class WebForm1
         Response.Redirect("Konfirmazioa.aspx")
     End Sub
 
-    Protected Sub GridView2_SelectedIndexChanging(sender As Object, e As GridViewSelectEventArgs) Handles GridView2.SelectedIndexChanging
-        GridView2.PageIndex = e.NewSelectedIndex
-        conexionbd.Open()
-        taulaBeteGonbidatua()
-        conexionbd.Close()
-
-    End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim tabla As String = "ostatu"
@@ -140,15 +133,6 @@ Public Class WebForm1
             End If
         End If
 
-
-        If RadioButton1.Checked Then
-            'logela_libreak = True
-        End If
-        If RadioButton2.Checked Then
-            ' logela_libreak = False
-            RadioButton1.Checked = False
-        End If
-
         Dim ds As New DataSet
         Dim ostatu As String = TextBox1.Text
 
@@ -157,5 +141,12 @@ Public Class WebForm1
         adaptador.Fill(ds.Tables("tabla"))
         GridView2.DataSource = ds.Tables("tabla")
         GridView2.DataBind()
+    End Sub
+
+    Protected Sub GridView2_PageIndexChanging(sender As Object, e As GridViewPageEventArgs) Handles GridView2.PageIndexChanging
+        GridView2.PageIndex = e.NewPageIndex
+        conexionbd.Open()
+        taulaBeteGonbidatua()
+        conexionbd.Close()
     End Sub
 End Class

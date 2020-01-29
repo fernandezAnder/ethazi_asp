@@ -55,11 +55,11 @@
             runat="server"
             >
         </asp:ScriptManager>
-            <p class="auto-style1"><span class="auto-style26">Sartze data: &nbsp;&nbsp;</span><asp:TextBox ID="calendario3" runat="server" CssClass="auto-style26" ReadOnly="True"></asp:TextBox>
+            <p class="auto-style1"><span class="auto-style26">Sartze data: &nbsp;&nbsp;</span><asp:TextBox ID="calendario3" runat="server" CssClass="auto-style26"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="calendario3_CalendarExtender" runat="server" TargetControlID="calendario3" />
                 <span class="auto-style26">&nbsp;&nbsp; irtetze data:
             </span>
-            <asp:TextBox ID="calendario4" runat="server" CssClass="auto-style26" ReadOnly="True"></asp:TextBox>
+            <asp:TextBox ID="calendario4" runat="server" CssClass="auto-style26"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="calendario4_CalendarExtender" runat="server" TargetControlID="calendario4" />
             </p>
             <p class="auto-style1"><span class="auto-style26">Email:&nbsp;

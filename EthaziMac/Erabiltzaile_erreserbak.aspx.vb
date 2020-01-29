@@ -40,11 +40,18 @@ Public Class WebForm4
     End Sub
 
     Protected Sub ImageButton1_Click(sender As Object, e As ImageClickEventArgs) Handles ImageButton1.Click
-        Dim ostatu As String = TextBox1.Text
+        Dim erreserba As String = TextBox1.Text
         conexionbd = New MySqlConnection()
         conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
-        taulaBeteBilatu()
+        If erreserba IsNot "" Then
+            taulaBeteBilatu()
+        Else
+            taulaBete()
+        End If
+
+
+
 
     End Sub
 
@@ -73,6 +80,10 @@ Public Class WebForm4
     End Sub
 
     Protected Sub GridView2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView2.SelectedIndexChanged
+        Dim id_erreserba As Integer
+        Dim linea As GridViewRow = GridView2.SelectedRow
+        id_erreserba = linea.Cells(1).Text
+        Session.Add("id_erreserba", id_erreserba)
         Response.Redirect("ErreserbaAldaketa.aspx")
     End Sub
 End Class

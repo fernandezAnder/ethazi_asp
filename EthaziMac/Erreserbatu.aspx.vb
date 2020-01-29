@@ -17,6 +17,7 @@ Public Class WebForm1
         conexionbd = New MySqlConnection()
         conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
+
         taulaBeteGonbidatua()
         KokapenaBeteBD()
 
@@ -54,6 +55,7 @@ Public Class WebForm1
     End Sub
 
     Private Sub taulaBeteGonbidatua()
+        conexionbd.Open()
         Dim ds As New DataSet
         Dim SQL As String = "SELECT * FROM ostatu"
         Dim adaptador As New MySqlDataAdapter(SQL, conexionbd)
@@ -62,10 +64,31 @@ Public Class WebForm1
         adaptador.Fill(ds.Tables("tabla"))
         GridView2.DataSource = ds.Tables("tabla")
         GridView2.DataBind()
+        conexionbd.Close()
+    End Sub
+
+    Private Sub taulaBeteGonbidatuaBilatu()
+        Dim bilatzailea As String = TextBox1.Text
+        conexionbd.Open()
+        Dim ds As New DataSet
+        Dim SQL As String = "SELECT * FROM ostatu where Izena like '%" + bilatzailea + "%'"
+        Dim adaptador As New MySqlDataAdapter(SQL, conexionbd)
+
+        ds.Tables.Add("tabla")
+        adaptador.Fill(ds.Tables("tabla"))
+        GridView2.DataSource = ds.Tables("tabla")
+        GridView2.DataBind()
+        conexionbd.Close()
     End Sub
 
     Protected Sub ImageButton1_Click(sender As Object, e As ImageClickEventArgs) Handles ImageButton1.Click
         Dim bilatzailea As String = TextBox1.Text
+        If bilatzailea IsNot "" Then
+            taulaBeteGonbidatuaBilatu()
+        Else
+            taulaBeteGonbidatua()
+        End If
+
 
     End Sub
 
@@ -74,7 +97,7 @@ Public Class WebForm1
         Dim linea As GridViewRow = GridView2.SelectedRow
 
         ostatu_id = linea.Cells(1).Text
-        MessageBox.Show(linea.Cells(1).Text)
+
 
         Session.Add("ostatu_id", ostatu_id)
         Response.Redirect("Konfirmazioa.aspx")

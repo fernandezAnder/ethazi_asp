@@ -6,12 +6,12 @@ Public Class ErreserbaAldaketa
     Dim erabiltzailea As String
     Dim erreserba_data As String
     Dim ostatu_id As Integer
-
     Dim id_erreserba As Integer
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        erabiltzailea = Session("erabiltzailea")
         id_erreserba = Session("id_erreserba")
         ostatu_id = Session("ostatu_id")
-        erabiltzailea = Session("erabiltzailea")
+
         datuakBistaratu()
 
 
@@ -33,11 +33,6 @@ Public Class ErreserbaAldaketa
         conexionbd.Open()
         Dim rs As MySqlDataReader = SQL.ExecuteReader()
 
-
-        conexionbd = New MySqlConnection()
-            conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
-            conexionbd.Open()
-            rs.Read()
         While rs.Read
             izena = (rs(1).ToString)
             deskribapena = (rs(2).ToString)
@@ -47,20 +42,15 @@ Public Class ErreserbaAldaketa
             prezioa = (rs(10).ToString)
         End While
 
-
         Label7.Text = izena
-            Label8.Text = deskribapena
-            Label9.Text = Kokapena
-            Label10.Text = telefonoa
-            Label11.Text = email
-            Label12.Text = prezioa
-
+        Label8.Text = deskribapena
+        Label9.Text = kokapena
+        Label10.Text = telefonoa
+        Label11.Text = email
+        Label12.Text = prezioa
 
         rs.Close()
-            conexionbd.Close()
-
-
-
+        conexionbd.Close()
     End Sub
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         conexionbd.Open()

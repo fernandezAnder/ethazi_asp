@@ -16,6 +16,12 @@
             margin-left: 44px;
             text-align: left;
         }
+        .auto-style3 {
+            margin-left: 80px;
+        }
+        .auto-style4 {
+            text-align: center;
+        }
         </style>
 </head>
 <body>
@@ -47,8 +53,9 @@
              &nbsp;&nbsp;&nbsp;&nbsp;
              <asp:Button ID="Button1" runat="server" Text="Bilatu" />
         </p>
-        <p style="margin-left: 40px">
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p class="auto-style3">
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <div class="auto-style4">
              <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="16px" Width="1707px"  AllowPaging="True" PageSize="20">
                  <Columns>
                      <asp:CommandField ButtonType="Button" SelectText="Erreserbatu" ShowSelectButton="True" />
@@ -63,6 +70,8 @@
                  <SortedDescendingCellStyle BackColor="#CAC9C9" />
                  <SortedDescendingHeaderStyle BackColor="#00547E" />
              </asp:GridView>
+
+             </div>
 
         &nbsp;</p>
 

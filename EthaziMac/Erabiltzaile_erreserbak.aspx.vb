@@ -49,10 +49,6 @@ Public Class WebForm4
         Else
             taulaBete()
         End If
-
-
-
-
     End Sub
 
     Private Sub taulaBeteBilatu()
@@ -81,9 +77,32 @@ Public Class WebForm4
 
     Protected Sub GridView2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView2.SelectedIndexChanged
         Dim id_erreserba As Integer
+        Dim ostatu_id As Integer
         Dim linea As GridViewRow = GridView2.SelectedRow
         id_erreserba = linea.Cells(1).Text
+
+        ostatu_id = CInt(ostatuIdAtera(id_erreserba))
+
+
         Session.Add("id_erreserba", id_erreserba)
+        Session.Add("ostatu_id", ostatu_id)
         Response.Redirect("ErreserbaAldaketa.aspx")
     End Sub
+
+    Private Function ostatuIdAtera(id_erreserba As Integer) As Integer
+        conexionbd.Open()
+        conexionbd = New MySqlConnection()
+        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
+        Dim ostatu_id As Integer
+
+        Dim SQL As MySqlCommand = conexionbd.CreateCommand()
+        SQL.CommandText = "SELECT id_Ostatu FROM erreserba WHERE id_Erreserba = " + id_erreserba.ToString
+        conexionbd.Open()
+        Dim rs As MySqlDataReader = SQL.ExecuteReader()
+        rs.Read()
+        ostatu_id = rs(0)
+        rs.Close()
+        conexionbd.Close()
+        Return ostatu_id
+    End Function
 End Class

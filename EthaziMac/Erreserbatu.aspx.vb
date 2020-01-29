@@ -14,14 +14,8 @@ Public Class WebForm1
         erabiltzailea = Session("erabiltzailea")
         Label1.Text = "Ongi Etorri " + erabiltzailea
 
-        conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
-        conexionbd.Open()
-
         taulaBeteGonbidatua()
         KokapenaBeteBD()
-
-        conexionbd.Close()
 
     End Sub
 
@@ -33,6 +27,7 @@ Public Class WebForm1
         conexionbd.Open()
         Dim rs As MySqlDataReader = SQL.ExecuteReader()
         Try
+            array_kokapena.Add("")
             rs.Read()
             array_kokapena.Add(rs(0).ToString)
             While rs.Read
@@ -55,6 +50,9 @@ Public Class WebForm1
     End Sub
 
     Private Sub taulaBeteGonbidatua()
+
+        conexionbd = New MySqlConnection()
+        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
         Dim ds As New DataSet
         Dim SQL As String = "SELECT * FROM ostatu"
@@ -125,34 +123,60 @@ Public Class WebForm1
             Else
                 sql = sql + "Ostatu_mota = 'Casas Rurales'"
             End If
-            'ruraletxea_checkbox = True
+
 
         End If
         If Checkbox2.Checked Then
-            If Checkbox1.Checked Then
-                ' alberge_checkbox = True
-                sql = sql + " OR Ostatu_mota = 'Albergues'"
+            If Checkbox1.Checked Or Checkbox3.Checked Or Checkbox4.Checked Then
+                If Checkbox1.Checked Then
+                    sql = sql + " OR Ostatu_mota = 'Albergues'"
+                Else
+                    sql = sql + " AND Ostatu_mota = 'Albergues'"
+                End If
+
             Else
-                sql = sql + " Ostatu_mota = 'Albergues'"
+                If kokapena IsNot "" Then
+                    sql = sql + " AND Ostatu_mota = 'Albergues'"
+                Else
+                    sql = sql + " Ostatu_mota = 'Albergues'"
+                End If
+
 
             End If
 
         End If
         If Checkbox3.Checked Then
-            If Checkbox2.Checked Then
-                ' kanping_checkbox = True
-                sql = sql + " OR Ostatu_mota = 'Campings'"
+            If Checkbox2.Checked Or Checkbox1.Checked Or Checkbox4.Checked Then
+                If Checkbox2.Checked Then
+                    sql = sql + " OR Ostatu_mota = 'Campings'"
+                Else
+                    sql = sql + " AND Ostatu_mota = 'Campings'"
+                End If
+
             Else
-                sql = sql + " Ostatu_mota = 'Campings'"
+                If kokapena IsNot "" Then
+                    sql = sql + " AND Ostatu_mota = 'Campings'"
+                Else
+                    sql = sql + " Ostatu_mota = 'Campings'"
+                End If
+
             End If
         End If
 
         If Checkbox4.Checked Then
-            ' agroturismo_checkbox = True
-            If Checkbox3.Checked Then
-                sql = sql + " OR Ostatu_mota = 'Agroturismos'"
+            If Checkbox3.Checked Or Checkbox2.Checked Or Checkbox1.Checked Then
+                If Checkbox3.Checked Then
+                    sql = sql + " OR Ostatu_mota = 'Agroturismos'"
+                Else
+                    sql = sql + " AND Ostatu_mota = 'Agroturismos'"
+                End If
             Else
-                sql = sql + " Ostatu_mota = 'Agroturismos'"
+                If kokapena IsNot "" Then
+                    sql = sql + " AND Ostatu_mota = 'Agroturismos'"
+                Else
+                    sql = sql + " Ostatu_mota = 'Agroturismos'"
+                End If
+
             End If
         End If
 

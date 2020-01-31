@@ -22,7 +22,7 @@
             margin-left: 749px;
         }
         .auto-style30 {
-            text-align: center;
+            text-align: left;
             font-size: large;
         }
         .auto-style31 {
@@ -30,6 +30,14 @@
             height: 144px;
             margin-left: 698px;
             margin-right: 578px;
+        }
+        .auto-style32 {
+            text-align: left;
+            margin-left: 701px;
+        }
+        .auto-style33 {
+            text-align: left;
+            margin-left: 700px;
         }
     </style>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -50,7 +58,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h1 class="auto-style1">ERRERSERBA MODIFIKAZIOA</h1>
+            <h1 class="auto-style32">ERRERSERBA MODIFIKAZIOA</h1>
             <p class="auto-style30">&nbsp;</p>
             <p class="auto-style27"><span class="auto-style26"><strong>Izena:</strong>
             </span>
@@ -77,24 +85,24 @@
             runat="server"
             >
         </asp:ScriptManager>
-            <p class="auto-style29"><span class="auto-style26"><strong>Prezio Totala:</strong>
+            <p class="auto-style33"><span class="auto-style26"><strong>Prezio Totala:</strong>
             </span>
             <asp:Label ID="Label12" runat="server" Text="Label" CssClass="auto-style26"></asp:Label>
             </p>
             <p class="auto-style29">&nbsp;</p>
-            <p class="auto-style1"><span class="auto-style26"><strong>Sartze data:</strong> &nbsp;&nbsp;</span><asp:TextBox ID="calendario3" runat="server" CssClass="auto-style26"></asp:TextBox>
+            <p class="auto-style33"><span class="auto-style26"><strong>Sartze data:</strong> &nbsp;&nbsp;</span><asp:TextBox ID="calendario3" runat="server" CssClass="auto-style26" AutoCompleteType="Disabled"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="calendario3_CalendarExtender" runat="server" TargetControlID="calendario3" />
                 <span class="auto-style26">&nbsp;&nbsp; <strong>Irtetze data:</strong>
             </span>
-            <asp:TextBox ID="calendario4" runat="server" CssClass="auto-style26"></asp:TextBox>
+            <asp:TextBox ID="calendario4" runat="server" CssClass="auto-style26" AutoCompleteType="Disabled"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="calendario4_CalendarExtender" runat="server" TargetControlID="calendario4" />
             </p>
             <p class="auto-style1">&nbsp;</p>
-            <p class="auto-style1"><asp:Button ID="Button3" runat="server" Text="Atzera" CssClass="auto-style26" Width="109px" />
+            <p class="auto-style1"><asp:Button ID="Button3" runat="server" Text="Atzera" CssClass="auto-style26" Width="109px" Height="35px" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button1" runat="server" Text="Ezabatu Erreserba" CssClass="auto-style26" />
+            <asp:Button ID="Button1" runat="server" Text="Ezabatu Erreserba" CssClass="auto-style26" Height="40px" />
                 <span class="auto-style26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;</span><asp:Button ID="Button2" runat="server" Text="Aldatu" CssClass="auto-style26" Width="109px" />
+&nbsp;</span><asp:Button ID="Button2" runat="server" Text="Aldatu" CssClass="auto-style26" Width="109px" Height="40px" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
         </div>
         <span class="auto-style26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

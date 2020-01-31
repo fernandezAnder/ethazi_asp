@@ -42,7 +42,7 @@ Public Class WebForm3
 
             MessageBox.Show("Telefonoa txarto ")
         End If
-        If email.Equals(Nothing) Or email.Equals("") Then
+        If email.Equals(Nothing) Or email.Equals("") Or EmailValido(email) = False Then
 
             MessageBox.Show("Email txarto")
         End If
@@ -50,8 +50,8 @@ Public Class WebForm3
             Dim Konprobaketa_erabiltzailea As Boolean = konprobatuErabiltzailea(erabiltzailea)
 
             Dim Konprobaketa_pasahitza As Boolean = konprobatuPasahitzak(pasahitza, balid_pasahitza)
-
-            If Konprobaketa_erabiltzailea = True And Konprobaketa_pasahitza = True Then
+            Dim email_balidatu As Boolean = EmailValido(email)
+            If Konprobaketa_erabiltzailea = True And Konprobaketa_pasahitza = True And email_balidatu = True Then
                 Konprobaketa_globala = True
             End If
 
@@ -136,7 +136,10 @@ Public Class WebForm3
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Response.Redirect("Login.aspx")
     End Sub
-
+    Private Shared Function EmailValido(strEmail As String) As Boolean
+        ' Retorna verdadero si strEmail es un formato de E-mail valido.
+        Return System.Text.RegularExpressions.Regex.IsMatch(strEmail, "^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" & "(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$")
+    End Function
 
 
 End Class

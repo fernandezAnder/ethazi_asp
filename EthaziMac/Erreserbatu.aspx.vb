@@ -13,7 +13,10 @@ Public Class WebForm1
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         erabiltzailea = Session("erabiltzailea")
         Label1.Text = "Ongi Etorri " + erabiltzailea
-
+        If erabiltzailea.Equals("gonbidatua") Then
+            Button2.Enabled = False
+            Button2.Visible = False
+        End If
         taulaBeteGonbidatua()
         KokapenaBeteBD()
 
@@ -21,7 +24,7 @@ Public Class WebForm1
 
     Private Sub KokapenaBeteBD()
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
         Dim SQL As MySqlCommand = conexionbd.CreateCommand()
         SQL.CommandText = "SELECT DISTINCT(Kokapena) FROM ostatu"
         conexionbd.Open()
@@ -52,7 +55,7 @@ Public Class WebForm1
     Private Sub taulaBeteGonbidatua()
 
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
         Dim ds As New DataSet
         Dim SQL As String = "SELECT * FROM ostatu"
@@ -115,6 +118,7 @@ Public Class WebForm1
 
         If kokapena IsNot "" Then
             sql = sql + "Kokapena = '" + kokapena + "'"
+
         End If
 
         If Checkbox1.Checked Then
@@ -195,5 +199,9 @@ Public Class WebForm1
         conexionbd.Open()
         taulaBeteGonbidatua()
         conexionbd.Close()
+    End Sub
+
+    Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
     End Sub
 End Class

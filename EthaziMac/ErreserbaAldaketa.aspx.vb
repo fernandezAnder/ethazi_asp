@@ -26,7 +26,7 @@ Public Class ErreserbaAldaketa
         Dim prezioa As String
 
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
 
         Dim SQL As MySqlCommand = conexionbd.CreateCommand()
         SQL.CommandText = "SELECT * from ostatu WHERE id_Ostatu = " + ostatu_id.ToString

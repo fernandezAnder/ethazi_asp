@@ -15,9 +15,30 @@
         .auto-style3 {
             margin-left: 720px;
         }
-        .auto-style25 {
+        .auto-style26 {
+            font-size: large;
+        }
+        .auto-style27 {
             text-align: left;
-            margin-left: 760px;
+            margin-left: 666px;
+        }
+        .auto-style28 {
+            text-align: left;
+            margin-left: 664px;
+        }
+        .auto-style29 {
+            text-align: left;
+            margin-left: 667px;
+        }
+        .auto-style30 {
+            text-align: left;
+            margin-left: 667px;
+            width: 477px;
+            height: 90px;
+        }
+        .auto-style31 {
+            margin-left: 664px;
+            margin-right: 559px;
         }
     </style>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -42,41 +63,48 @@
             <p class="auto-style1">
                 &nbsp;</p>
         </div>
-        <p class="auto-style25">
-            <strong>Izena:</strong>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        &nbsp;&nbsp;&nbsp; <strong>Kokapena:</strong>&nbsp;
-            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+        <p class="auto-style27">
+            <strong><span class="auto-style26">Izena:</span></strong>
+            <asp:Label ID="Label1" runat="server" Text="Label" CssClass="auto-style26"></asp:Label>
+            <span class="auto-style26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </span> <strong><span class="auto-style26">Kokapena:</span></strong><span class="auto-style26">&nbsp;
+            </span>
+            <asp:Label ID="Label3" runat="server" Text="Label" CssClass="auto-style26"></asp:Label>
         </p>
-        <p class="auto-style25">
-            <strong>Telefonoa:</strong>&nbsp;
-            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
-        &nbsp;&nbsp;&nbsp; <strong>Email:</strong>&nbsp;
-            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+        <p class="auto-style28">
+            <strong><span class="auto-style26">Telefonoa:</span></strong><span class="auto-style26">&nbsp;
+            </span>
+            <asp:Label ID="Label4" runat="server" Text="Label" CssClass="auto-style26"></asp:Label>
+            <span class="auto-style26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </span> <strong><span class="auto-style26">Email:</span></strong><span class="auto-style26">&nbsp;
+            </span>
+            <asp:Label ID="Label5" runat="server" Text="Label" CssClass="auto-style26"></asp:Label>
         </p>
-        <p class="auto-style25">
-            <strong>Deskribapena:</strong>&nbsp;
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        <p class="auto-style30">
+            <strong><span class="auto-style26">Deskribapena:</span></strong><span class="auto-style26">&nbsp;
+            </span>
+            <asp:Label ID="Label2" runat="server" Text="Label" CssClass="auto-style26"></asp:Label>
         </p>
-        <p class="auto-style25">
-            <strong>Prezio Totala:</strong>
-            <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+        <p class="auto-style29">
+            &nbsp;</p>
+        <p class="auto-style29">
+            <strong><span class="auto-style26">Prezio Totala:</span></strong>
+            <asp:Label ID="Label6" runat="server" Text="Label" CssClass="auto-style26"></asp:Label>
         </p>
           <asp:ScriptManager 
             ID="ScriptManager1"
             runat="server"
             >
         </asp:ScriptManager>
-        <p class="auto-style3"><strong>Sartze data:</strong> &nbsp;&nbsp;<asp:TextBox ID="calendario" runat="server"></asp:TextBox>
+        <p class="auto-style31"><strong><span class="auto-style26">Sartze data:</span></strong><span class="auto-style26"> &nbsp;&nbsp;</span><asp:TextBox ID="calendario" runat="server" AutoCompleteType="Disabled" CssClass="auto-style26"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="calendario_CalendarExtender" runat="server" TargetControlID="calendario" />
-            &nbsp;&nbsp;<strong> Irtetze data:</strong>
-            <asp:TextBox ID="calendario2" runat="server" ReadOnly="True"></asp:TextBox>
+            <span class="auto-style26">&nbsp;&nbsp;</span><strong><span class="auto-style26"> Irtetze data:</span></strong>
+            <asp:TextBox ID="calendario2" runat="server" ReadOnly="True" AutoCompleteType="Disabled" CssClass="auto-style26"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="calendario2_CalendarExtender" runat="server" TargetControlID="calendario2" />
         </p>
+        <p class="auto-style31">&nbsp;</p>
         <div class="auto-style3">
-            <asp:Button ID="Button1" runat="server" Text="Ezeztatu" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;<asp:Button ID="Button2" runat="server" Text="Errserbatu" />
+            <asp:Button ID="Button1" runat="server" Text="Ezeztatu" CssClass="auto-style26" Height="40px" />
+            <span class="auto-style26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;</span><asp:Button ID="Button2" runat="server" Text="Errserbatu" CssClass="auto-style26" Height="40px" />
         </div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </form>

@@ -10,7 +10,7 @@ Public Class WebForm4
         Label2.Text = "Ongi Etorri " + erabiltzailea
 
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
         taulaBete()
         conexionbd.Close()
@@ -42,7 +42,7 @@ Public Class WebForm4
     Protected Sub ImageButton1_Click(sender As Object, e As ImageClickEventArgs) Handles ImageButton1.Click
         Dim erreserba As String = TextBox1.Text
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
         If erreserba IsNot "" Then
             taulaBeteBilatu()
@@ -92,7 +92,7 @@ Public Class WebForm4
     Private Function ostatuIdAtera(id_erreserba As Integer) As Integer
         conexionbd.Open()
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
         Dim ostatu_id As Integer
 
         Dim SQL As MySqlCommand = conexionbd.CreateCommand()

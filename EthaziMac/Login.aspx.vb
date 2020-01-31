@@ -10,7 +10,7 @@ Public Class WebForm2
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
             conexionbd = New MySqlConnection()
-            conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
+            conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
 
             conexionbd.Open()
 
@@ -28,27 +28,19 @@ Public Class WebForm2
 
 
         Dim erabiltzailea As String = erabiltzaile_textua.Text
-        Dim pasahitza As String = pasahitza_textua.text
-        Dim SQL As MySqlCommand = conexionbd.CreateCommand()
-        SQL.CommandText = "SELECT erabiltzaile, pasahitza from erabiltzaile"
+        Dim pasahitza As String = pasahitza_textua.Text
+        Dim bd_pasahitza As String
         conexionbd.Open()
+        Dim SQL As MySqlCommand = conexionbd.CreateCommand()
+        SQL.CommandText = "SELECT erabiltzaile from erabiltzaile"
         Dim rs As MySqlDataReader = SQL.ExecuteReader()
         Try
             conexionbd = New MySqlConnection()
-            conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
-
-
-            conexionbd.Open()
-
+            conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
             rs.Read()
-
             array_erabiltzaileak.Add((rs(0).ToString))
-            array_pasahitzak.Add((rs(1).ToString))
             While rs.Read
-
                 array_erabiltzaileak.Add((rs(0).ToString))
-                array_pasahitzak.Add((rs(1).ToString))
-
             End While
         Catch
             MessageBox.Show("Barne errorea")
@@ -57,16 +49,32 @@ Public Class WebForm2
             conexionbd.Close()
 
         End Try
+        conexionbd.Open()
+        Dim SQL2 As MySqlCommand = conexionbd.CreateCommand()
+        SQL2.CommandText = "SELECT pasahitza from erabiltzaile where erabiltzaile = '" + erabiltzailea + "'"
+        Dim rs2 As MySqlDataReader = SQL2.ExecuteReader()
+
+        conexionbd = New MySqlConnection()
+        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        rs2.Read()
+        bd_pasahitza = rs2(0)
+
+
+
+        rs2.Close()
+        conexionbd.Close()
+
+
 
 
         For Each izena As String In array_erabiltzaileak
 
             If (izena.Equals(erabiltzailea)) Then
-                For Each bd_pasahitza As String In array_pasahitzak
-                    If Metodoak.verificarMD5(pasahitza, bd_pasahitza) Then
+
+                If Metodoak.verificarMD5(pasahitza, bd_pasahitza) Then
                         balidazioa = True
                     End If
-                Next
+
             End If
         Next
 

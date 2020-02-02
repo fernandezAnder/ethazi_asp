@@ -10,7 +10,8 @@ Public Class WebForm4
         Label2.Text = "Ongi Etorri " + erabiltzailea
 
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        'conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
         taulaBete()
         conexionbd.Close()
@@ -19,7 +20,6 @@ Public Class WebForm4
     Private Sub taulaBete()
 
         Dim ds As New DataSet
-        ' Dim SQL As String = "SELECT * FROM erreserba "
         Dim SQL As String = "SELECT er.id_Erreserba,er.hasieraData,er.amaieraData,er.prezioGuztira, os.Izena, os.Deskribapena, os.Kokapena, os.Telefonoa, os.Email 
         From erreserba er, ostatu os, erabiltzaile era 
         WHERE era.id_erabiltzaile = er.id_Erabiltzaile 
@@ -42,7 +42,8 @@ Public Class WebForm4
     Protected Sub ImageButton1_Click(sender As Object, e As ImageClickEventArgs) Handles ImageButton1.Click
         Dim erreserba As String = TextBox1.Text
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        'conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
         If erreserba IsNot "" Then
             taulaBeteBilatu()
@@ -92,7 +93,8 @@ Public Class WebForm4
     Private Function ostatuIdAtera(id_erreserba As Integer) As Integer
         conexionbd.Open()
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        'conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         Dim ostatu_id As Integer
 
         Dim SQL As MySqlCommand = conexionbd.CreateCommand()

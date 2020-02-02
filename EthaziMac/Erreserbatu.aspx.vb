@@ -24,7 +24,8 @@ Public Class WebForm1
 
     Private Sub KokapenaBeteBD()
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        'conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         Dim SQL As MySqlCommand = conexionbd.CreateCommand()
         SQL.CommandText = "SELECT DISTINCT(Kokapena) FROM ostatu"
         conexionbd.Open()
@@ -55,7 +56,8 @@ Public Class WebForm1
     Private Sub taulaBeteGonbidatua()
 
         conexionbd = New MySqlConnection()
-        conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        'conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
+        conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         conexionbd.Open()
         Dim ds As New DataSet
         Dim SQL As String = "SELECT * FROM ostatu"
@@ -115,83 +117,86 @@ Public Class WebForm1
         Dim logela_libreak As Boolean = False
         Dim sql As String = "SELECT * FROM ostatu WHERE "
 
-
-        If kokapena IsNot "" Then
-            sql = sql + "Kokapena = '" + kokapena + "'"
-
-        End If
-
-        If Checkbox1.Checked Then
+        Try
             If kokapena IsNot "" Then
-                sql = sql + " AND Ostatu_mota = 'Casas Rurales'"
-            Else
-                sql = sql + "Ostatu_mota = 'Casas Rurales'"
+                sql = sql + "Kokapena = '" + kokapena + "'"
+
             End If
 
-
-        End If
-        If Checkbox2.Checked Then
-            If Checkbox1.Checked Or Checkbox3.Checked Or Checkbox4.Checked Then
-                If Checkbox1.Checked Then
-                    sql = sql + " OR Ostatu_mota = 'Albergues'"
-                Else
-                    sql = sql + " AND Ostatu_mota = 'Albergues'"
-                End If
-
-            Else
+            If Checkbox1.Checked Then
                 If kokapena IsNot "" Then
-                    sql = sql + " AND Ostatu_mota = 'Albergues'"
+                    sql = sql + " AND Ostatu_mota = 'Casas Rurales'"
                 Else
-                    sql = sql + " Ostatu_mota = 'Albergues'"
+                    sql = sql + "Ostatu_mota = 'Casas Rurales'"
                 End If
 
 
             End If
+            If Checkbox2.Checked Then
+                If Checkbox1.Checked Or Checkbox3.Checked Or Checkbox4.Checked Then
+                    If Checkbox1.Checked Then
+                        sql = sql + " OR Ostatu_mota = 'Albergues'"
+                    Else
+                        sql = sql + " AND Ostatu_mota = 'Albergues'"
+                    End If
 
-        End If
-        If Checkbox3.Checked Then
-            If Checkbox2.Checked Or Checkbox1.Checked Or Checkbox4.Checked Then
-                If Checkbox2.Checked Then
-                    sql = sql + " OR Ostatu_mota = 'Campings'"
                 Else
-                    sql = sql + " AND Ostatu_mota = 'Campings'"
-                End If
+                    If kokapena IsNot "" Then
+                        sql = sql + " AND Ostatu_mota = 'Albergues'"
+                    Else
+                        sql = sql + " Ostatu_mota = 'Albergues'"
+                    End If
 
-            Else
-                If kokapena IsNot "" Then
-                    sql = sql + " AND Ostatu_mota = 'Campings'"
-                Else
-                    sql = sql + " Ostatu_mota = 'Campings'"
-                End If
 
-            End If
-        End If
-
-        If Checkbox4.Checked Then
-            If Checkbox3.Checked Or Checkbox2.Checked Or Checkbox1.Checked Then
-                If Checkbox3.Checked Then
-                    sql = sql + " OR Ostatu_mota = 'Agroturismos'"
-                Else
-                    sql = sql + " AND Ostatu_mota = 'Agroturismos'"
-                End If
-            Else
-                If kokapena IsNot "" Then
-                    sql = sql + " AND Ostatu_mota = 'Agroturismos'"
-                Else
-                    sql = sql + " Ostatu_mota = 'Agroturismos'"
                 End If
 
             End If
-        End If
+            If Checkbox3.Checked Then
+                If Checkbox2.Checked Or Checkbox1.Checked Or Checkbox4.Checked Then
+                    If Checkbox2.Checked Then
+                        sql = sql + " OR Ostatu_mota = 'Campings'"
+                    Else
+                        sql = sql + " AND Ostatu_mota = 'Campings'"
+                    End If
 
-        Dim ds As New DataSet
-        Dim ostatu As String = TextBox1.Text
+                Else
+                    If kokapena IsNot "" Then
+                        sql = sql + " AND Ostatu_mota = 'Campings'"
+                    Else
+                        sql = sql + " Ostatu_mota = 'Campings'"
+                    End If
 
-        Dim adaptador As New MySqlDataAdapter(sql, conexionbd)
-        ds.Tables.Add("tabla")
-        adaptador.Fill(ds.Tables("tabla"))
-        GridView2.DataSource = ds.Tables("tabla")
-        GridView2.DataBind()
+                End If
+            End If
+
+            If Checkbox4.Checked Then
+                If Checkbox3.Checked Or Checkbox2.Checked Or Checkbox1.Checked Then
+                    If Checkbox3.Checked Then
+                        sql = sql + " OR Ostatu_mota = 'Agroturismos'"
+                    Else
+                        sql = sql + " AND Ostatu_mota = 'Agroturismos'"
+                    End If
+                Else
+                    If kokapena IsNot "" Then
+                        sql = sql + " AND Ostatu_mota = 'Agroturismos'"
+                    Else
+                        sql = sql + " Ostatu_mota = 'Agroturismos'"
+                    End If
+
+                End If
+            End If
+
+            Dim ds As New DataSet
+            Dim ostatu As String = TextBox1.Text
+
+            Dim adaptador As New MySqlDataAdapter(sql, conexionbd)
+            ds.Tables.Add("tabla")
+            adaptador.Fill(ds.Tables("tabla"))
+            GridView2.DataSource = ds.Tables("tabla")
+            GridView2.DataBind()
+        Catch
+        End Try
+
     End Sub
 
     Protected Sub GridView2_PageIndexChanging(sender As Object, e As GridViewPageEventArgs) Handles GridView2.PageIndexChanging

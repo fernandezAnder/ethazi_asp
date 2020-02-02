@@ -19,7 +19,7 @@ Public Class Konfirmazioa
     Private Sub datuakBistaratu()
         conexionbd = New MySqlConnection()
         conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
-
+        'conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
         Dim SQL As MySqlCommand = conexionbd.CreateCommand()
         SQL.CommandText = "SELECT * from ostatu WHERE id_Ostatu = '" + ostatu_id.ToString + "'"
         conexionbd.Open()
@@ -58,14 +58,13 @@ Public Class Konfirmazioa
 
         insertBD(ostatu_id.ToString, id_erabiltzailea_string, preziostring, Hasiera_data, Amaiera_data)
 
-        Response.Redirect("Erreserbatu.aspx")
     End Sub
 
     Private Function ateraIdErabiltzaileDBBDD()
         Dim id_erabiltzaile_string2 As String
         conexionbd = New MySqlConnection()
         conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
-
+        'conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
         Dim SQL As MySqlCommand = conexionbd.CreateCommand()
         SQL.CommandText = "SELECT id_erabiltzaile from erabiltzaile WHERE erabiltzaile = '" + erabiltzailea + "'"
         conexionbd.Open()
@@ -73,29 +72,37 @@ Public Class Konfirmazioa
         Try
             conexionbd = New MySqlConnection()
             conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
+            'conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
             conexionbd.Open()
             rs.Read()
 
             id_erabiltzaile_string2 = (rs(0).ToString)
 
         Catch
-            MessageBox.Show("Barne errorea")
+
         Finally
             rs.Close()
             conexionbd.Close()
 
         End Try
-
         Return id_erabiltzaile_string2
     End Function
 
     Private Sub insertBD(ostatu_id As String, id_erabiltzailea As String, PrezioaGuztira As String, Hasiera_data As String, Amaiera_data As String)
-        conexionbd.Open()
+        If erabiltzailea Is "gonbidatua" Then
+            id_erabiltzailea = "9999"
+        End If
+        If ostatu_id IsNot "" And id_erabiltzailea IsNot "" And PrezioaGuztira IsNot "" And Hasiera_data IsNot "" And Amaiera_data IsNot "" Then
+            conexionbd.Open()
+            Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erreserba`(`id_Ostatu`, `id_Erabiltzaile`, `hasieraData`, `amaieraData`, `prezioGuztira`) VALUES (" + ostatu_id + " ," + id_erabiltzailea + ",'" + Hasiera_data + "','" + Amaiera_data + "'," + PrezioaGuztira + ")", conexionbd)
+            SQL.ExecuteNonQuery()
+            conexionbd.Close()
+            Response.Redirect("Erreserbatu.aspx")
+        End If
 
-        Dim SQL As MySqlCommand = New MySqlCommand("INSERT INTO `erreserba`(`id_Ostatu`, `id_Erabiltzaile`, `hasieraData`, `amaieraData`, `prezioGuztira`) VALUES (" + ostatu_id + " ," + id_erabiltzailea + ",'" + Hasiera_data + "','" + Amaiera_data + "'," + PrezioaGuztira + ")", conexionbd)
-        SQL.ExecuteNonQuery()
-        conexionbd.Close()
     End Sub
 
-
+    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Response.Redirect("Erreserbatu.aspx")
+    End Sub
 End Class

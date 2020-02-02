@@ -34,7 +34,7 @@
             text-align: left;
             margin-left: 667px;
             width: 477px;
-            height: 90px;
+            height: 201px;
         }
         .auto-style31 {
             margin-left: 664px;
@@ -97,7 +97,7 @@
         <p class="auto-style31"><strong><span class="auto-style26">Sartze data:</span></strong><span class="auto-style26"> &nbsp;&nbsp;</span><asp:TextBox ID="calendario" runat="server" AutoCompleteType="Disabled" CssClass="auto-style26"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="calendario_CalendarExtender" runat="server" TargetControlID="calendario" />
             <span class="auto-style26">&nbsp;&nbsp;</span><strong><span class="auto-style26"> Irtetze data:</span></strong>
-            <asp:TextBox ID="calendario2" runat="server" ReadOnly="True" AutoCompleteType="Disabled" CssClass="auto-style26"></asp:TextBox>
+            <asp:TextBox ID="calendario2" runat="server" AutoCompleteType="Disabled" CssClass="auto-style26" Height="27px"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="calendario2_CalendarExtender" runat="server" TargetControlID="calendario2" />
         </p>
         <p class="auto-style31">&nbsp;</p>

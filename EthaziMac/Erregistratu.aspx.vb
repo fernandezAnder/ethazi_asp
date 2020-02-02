@@ -90,6 +90,7 @@ Public Class WebForm3
     Private Function konprobatuErabiltzailea(erabiltzailea As String)
         Dim balidazioa As Boolean = False
         conexionbd = New MySqlConnection()
+        'conexionbd.ConnectionString = "server=192.168.13.16 ; userid=root ; password = ; database=mydb"
         conexionbd.ConnectionString = "server=127.0.0.1 ; userid=root ; password = ; database=mydb"
         Dim SQL As MySqlCommand = conexionbd.CreateCommand()
         SQL.CommandText = "SELECT erabiltzaile from erabiltzaile"
